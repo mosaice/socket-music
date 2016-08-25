@@ -2,7 +2,25 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+li {
+  padding: 5px;
+}
 a {
   color: #00B7FF;
+}
+.active span {
+  color: red;
+}
+
+.control {
+  width:  200px;
+  overflow: hidden;
+}
+
+#prev {
+  float: left;
+}
+
+#next {
+  float: right;
 }

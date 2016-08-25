@@ -1,11 +1,8 @@
-var router = require('koa-router')();
+const router = require('koa-router')();
+const controller = require('../controller/');
 
-router.get('/', async function (ctx, next) {
-  ctx.state = {
-    title: 'koa2 title'
-  };
+router.get('/', controller.index);
+router.get('/songs/:song', controller.songs);
+router.get('/singer/:singer', controller.singer);
 
-  await ctx.render('index', {
-  });
-})
 module.exports = router;

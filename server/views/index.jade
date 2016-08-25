@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  if(music)
+    h2#title
+    image#cover(width='200',height='200')
+    audio#audio(controls='true')
+    p.control
+      i#prev PREV
+      i#next NEXT
+    ul
+      - for(var i = 0; i < music.length; i++)
+        li
+          span(data-src=music[i].src, data-cover=music[i].cover)= music[i].title
+  else
+    p 暂无歌曲
