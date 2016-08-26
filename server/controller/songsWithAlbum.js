@@ -6,7 +6,8 @@ const search = async (ctx, next) => {
     title: 'Search songs'
   };
   if (ctx.params.song.includes('.map')) return next();
-  const music = await searchSongs(ctx.params.song);
+  if (ctx.params.album.includes('.map')) return next();
+  const music = await searchSongs(ctx.params.song, false, ctx.params.album);
 
   await ctx.render('index', {
     music: music

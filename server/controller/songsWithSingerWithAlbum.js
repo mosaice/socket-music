@@ -3,10 +3,10 @@ var searchSongs = require('../libary/');
 
 const search = async (ctx, next) => {
   ctx.state = {
-    title: 'Search Singer'
+    title: 'Search songs'
   };
-  if (ctx.params.singer.includes('.map')) return next();
-  const music = await searchSongs(false, ctx.params.singer);
+  if (ctx.params.song.includes('.map')) return next();
+  const music = await searchSongs(ctx.params.song, ctx.params.singer, ctx.params.album);
 
   await ctx.render('index', {
     music: music

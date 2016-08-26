@@ -8,6 +8,7 @@ module.exports = function (data, souce) {
         author: data.artists.map(item => item.name).join(),
         cover: data.album.picUrl,
         src: data.mp3Url,
+        album: data.album.alias.join(),
         souce: 'Netease',
       };
     case 'XM':
@@ -24,7 +25,33 @@ module.exports = function (data, souce) {
         author: data.singer.map(item => item.name).join(),
         cover: data.imageUrl,
         src: data.dataUrl,
+        album: data.albumname,
         souce: 'QQMusic',
+      };
+    case 'BD':
+      return {
+        title: data.songinfo.title,
+        author: data.songinfo.author,
+        cover: data.songinfo.pic_premium,
+        src: data.bitrate.file_link,
+        souce: 'Baidu',
+      };
+    case 'KW':
+      return {
+        title: data.SONGNAME,
+        author: data.ARTIST,
+        cover: 'http://img.lenovomm.com/crawler@cluster-1/ams/fileman/img/icon/2015-05-07025724-_1430981844806_7780.png',
+        src: data.url,
+        souce: 'Kuwo',
+      };
+    case 'XM2':
+      return {
+        title: data.song_name,
+        author: data.artist_name,
+        cover: data.album_logo,
+        src: data.listen_file,
+        album: data.album_name,
+        souce: 'Xiami2',
       };
     default:
       return {
@@ -32,6 +59,7 @@ module.exports = function (data, souce) {
         author: '',
         cover: '',
         src: '',
+        album: '',
         souce: ''
       };
   }

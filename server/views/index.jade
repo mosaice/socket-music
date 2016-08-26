@@ -12,5 +12,7 @@ block content
       - for(var i = 0; i < music.length; i++)
         li
           span(data-src=music[i].src, data-cover=music[i].cover)= music[i].title
+          small &nbsp;&nbsp;&nbsp;#{music[i].album}&nbsp;&nbsp;&nbsp;
+          a(href=music[i].src, download=music[i].title) 下载
   else
     p 暂无歌曲
