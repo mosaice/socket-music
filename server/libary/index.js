@@ -36,31 +36,29 @@ const getSongs = async (song, author, album) => {
   const _keyObj = {};
   const songsArr = [];
 
-  xiamiArr.forEach(item => {
-    if (!_keyObj[item.song_name]) {
-      const data = songModel(item, 'XM2');
-      songsArr.push(data);
-      _keyObj[item.song_name] = true;
-    }
-  });
-
   QQArr.forEach(item => {
-    if (!_keyObj[item.songname]) {
+    if (!_keyObj[item.songname + item.albumname]) {
       item.dataUrl = `http://cc.stream.qqmusic.qq.com/C200${item.songmid}.m4a?vkey=${token}&fromtag=0&guid=780782017`;
       item.imageUrl = `http://imgcache.qq.com/music/photo/mid_album_300/${item.albummid.slice(-2, -1)}/${item.albummid.slice(-1)}/${item.albummid}.jpg`
       const data = songModel(item, 'QQ');
-      if (data) {
       songsArr.push(data);
-      _keyObj[item.songname] = true;
-      }
+      _keyObj[item.songname+item.albumname] = true;
+    }
+  });
+
+  xiamiArr.forEach(item => {
+    if (!_keyObj[item.song_name + item.album_name]) {
+      const data = songModel(item, 'XM2');
+      songsArr.push(data);
+      _keyObj[item.song_name + item.album_name] = true;
     }
   });
 
   neteaseArr.forEach(item => {
-    if (!_keyObj[item.name]) {
+    if (!_keyObj[item.name + item.album.alias.join()]) {
       const data = songModel(item, 'WY');
       songsArr.push(data);
-      _keyObj[item.name] = true;
+      _keyObj[item.name + item.album.alias.join()] = true;
     }
   });
   if (song && author && album) return songsArr.filter(item => item.author && item.album && (item.author.includes(author) || author.includes(item.author)) && (item.album.includes(album) || album.includes(item.album)));
