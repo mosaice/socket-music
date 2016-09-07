@@ -24,3 +24,6 @@ a {
 #next {
   float: right;
 }
+.author {
+  color: #ccc;
+}

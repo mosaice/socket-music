@@ -36,6 +36,14 @@ const getSongs = async (song, author, album) => {
   const _keyObj = {};
   const songsArr = [];
 
+  xiamiArr.forEach(item => {
+    if (!_keyObj[item.song_name + item.album_name]) {
+      const data = songModel(item, 'XM2');
+      songsArr.push(data);
+      _keyObj[item.song_name + item.album_name] = true;
+    }
+  });
+
   QQArr.forEach(item => {
     if (!_keyObj[item.songname + item.albumname]) {
       item.dataUrl = `http://cc.stream.qqmusic.qq.com/C200${item.songmid}.m4a?vkey=${token}&fromtag=0&guid=780782017`;
@@ -43,14 +51,6 @@ const getSongs = async (song, author, album) => {
       const data = songModel(item, 'QQ');
       songsArr.push(data);
       _keyObj[item.songname+item.albumname] = true;
-    }
-  });
-
-  xiamiArr.forEach(item => {
-    if (!_keyObj[item.song_name + item.album_name]) {
-      const data = songModel(item, 'XM2');
-      songsArr.push(data);
-      _keyObj[item.song_name + item.album_name] = true;
     }
   });
 

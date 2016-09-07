@@ -48,6 +48,7 @@ class Netease {
       while (data.length === this.limit) {
         offset += this.limit;
         data = JSON.parse((await this._search(key, this.limit, offset, method)).res.text).result.songs;
+        if (!data) break;
         dataArr = dataArr.concat(data);
       }
       return dataArr.filter(item => item.status !== -1 && ((item.bMusic && item.bMusic.name) || (item.hMusic && item.hMusic.name) ||(item.lMusic && item.lMusic.name) ||(item.mMusic && item.mMusic.name)));

@@ -1,7 +1,7 @@
 
-module.exports = function (data, souce) {
+module.exports = function (data, source) {
   if (!data) return null;
-  switch (souce) {
+  switch (source) {
     case 'WY':
       return {
         title: data.name,
@@ -9,7 +9,7 @@ module.exports = function (data, souce) {
         cover: data.album.picUrl,
         src: data.mp3Url,
         album: data.album.alias.join(),
-        souce: 'Netease',
+        source: 'Netease',
       };
     case 'XM':
       return {
@@ -17,7 +17,7 @@ module.exports = function (data, souce) {
         author: data.author,
         cover: data.cover,
         src: data.src,
-        souce: 'Xiami',
+        source: 'Xiami',
       };
     case 'QQ':
       return {
@@ -26,7 +26,7 @@ module.exports = function (data, souce) {
         cover: data.imageUrl,
         src: data.dataUrl,
         album: data.albumname,
-        souce: 'QQMusic',
+        source: 'QQMusic',
       };
     case 'BD':
       return {
@@ -34,7 +34,7 @@ module.exports = function (data, souce) {
         author: data.songinfo.author,
         cover: data.songinfo.pic_premium,
         src: data.bitrate.file_link,
-        souce: 'Baidu',
+        source: 'Baidu',
       };
     case 'KW':
       return {
@@ -42,7 +42,7 @@ module.exports = function (data, souce) {
         author: data.ARTIST,
         cover: 'http://img.lenovomm.com/crawler@cluster-1/ams/fileman/img/icon/2015-05-07025724-_1430981844806_7780.png',
         src: data.url,
-        souce: 'Kuwo',
+        source: 'Kuwo',
       };
     case 'XM2':
       return {
@@ -51,7 +51,7 @@ module.exports = function (data, souce) {
         cover: data.album_logo,
         src: data.listen_file,
         album: data.album_name,
-        souce: 'Xiami2',
+        source: 'Xiami2',
       };
     default:
       return {
@@ -60,7 +60,7 @@ module.exports = function (data, souce) {
         cover: '',
         src: '',
         album: '',
-        souce: ''
+        source: ''
       };
   }
 };
