@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "asyncawait": "^1.0.6",
+    "babel-eslint": "^6.1.2",
     "bluebird": "^3.4.2",
     "co": "^4.6.0",
     "debug": "^2.2.0",
@@ -32,6 +33,10 @@
     "nodemon": "^1.8.1"
   },
   "babel": {
-    "ignore": ["libary/**", "node_modules/**", "redis/**"]
+    "ignore": [
+      "libary/**",
+      "node_modules/**",
+      "redis/**"
+    ]
   }
 }

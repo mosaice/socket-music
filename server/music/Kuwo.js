@@ -14,22 +14,22 @@ class Kuwo {
   createUrl(key, limit) {
     let temp = '';
     Object.keys(this.query).forEach(key => {
-      temp += `${key}=${this.query[key]}&`
+      temp += `${key}=${this.query[key]}&`;
     });
-    return `${this.url}?${temp}${this.keyName}=${encodeURI(key)}&rn=${limit}`
+    return `${this.url}?${temp}${this.keyName}=${encodeURI(key)}&rn=${limit}`;
   }
 
   _search(key, l) {
     console.log('search in Kuwo Page');
-    return request(this.createUrl(key, l))
+    return request(this.createUrl(key, l));
   }
 
   createPlayUrl(id) {
     let temp = '';
     Object.keys(this.songConfig.query).forEach(key => {
-      temp += `${key}=${this.songConfig.query[key]}&`
+      temp += `${key}=${this.songConfig.query[key]}&`;
     });
-    return `${this.songConfig.url}?${temp}${this.songConfig.name}=${id}`
+    return `${this.songConfig.url}?${temp}${this.songConfig.name}=${id}`;
   }
 
   async searchSong(id) {

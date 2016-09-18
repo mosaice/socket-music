@@ -1,9 +1,9 @@
 
-const index = async (ctx, next) => {
+const index = async (ctx) => {
   await ctx.render('index', {
     music: null
   });
-}
+};
 
 module.exports = {
   index,

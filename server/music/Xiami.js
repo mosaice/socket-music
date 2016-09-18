@@ -13,14 +13,14 @@ class Xiami {
   createUrl(key, page) {
     let temp = '';
     Object.keys(this.query).forEach(key => {
-      temp += `${key}=${this.query[key]}&`
+      temp += `${key}=${this.query[key]}&`;
     });
-    return `${this.url}?${temp}${this.keyName}=${encodeURI(key)}&page=${page}`
+    return `${this.url}?${temp}${this.keyName}=${encodeURI(key)}&page=${page}`;
   }
 
   _search(key, p) {
     console.log('search in xiami Page' + p);
-    return request(this.createUrl(key, p))
+    return request(this.createUrl(key, p));
   }
 
   async search(key) {

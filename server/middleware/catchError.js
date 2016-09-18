@@ -1,15 +1,14 @@
-const error = require('../libary/apiResModel').error;
+const error = require('../unit/apiRestModel').error;
 
 const catchError = async (ctx, next) => {
   try {
     await next();
   } catch(e) {
-    let status = e.status || 500;
-    let message = e.message || '服务器错误';
+    let code = e.code || 1050;
     ctx.app.emit('error', e, ctx);
-    ctx.body = error(status, message);
+    ctx.body = error(code);
   }
-}
+};
 
 
 module.exports = catchError;

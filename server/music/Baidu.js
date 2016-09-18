@@ -13,18 +13,18 @@ class Baidu {
   createUrl(key, page) {
     let temp = '';
     Object.keys(this.query).forEach(key => {
-      temp += `${key}=${this.query[key]}&`
+      temp += `${key}=${this.query[key]}&`;
     });
-    return `${this.url}?${temp}method=${this.method.search}&${this.keyName}=${encodeURI(key)}&page_no=${page}`
+    return `${this.url}?${temp}method=${this.method.search}&${this.keyName}=${encodeURI(key)}&page_no=${page}`;
   }
 
   createPlayUrl(id) {
-    return `${this.url}?from=webapp_music&method=${this.method.play}&songid=${id}`
+    return `${this.url}?from=webapp_music&method=${this.method.play}&songid=${id}`;
   }
 
   _search(key, p) {
     console.log('search in Baidu Page' + p);
-    return request(this.createUrl(key, p))
+    return request(this.createUrl(key, p));
   }
 
   async searchSong(id) {

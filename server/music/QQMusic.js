@@ -13,15 +13,15 @@ class QQMusic {
   createUrl(key, page) {
     let temp = '';
     Object.keys(this.query).forEach(key => {
-      temp += `${key}=${this.query[key]}&`
+      temp += `${key}=${this.query[key]}&`;
     });
-    return `${this.url}?${temp}${this.keyName}=${encodeURI(key)}&p=${page}`
+    return `${this.url}?${temp}${this.keyName}=${encodeURI(key)}&p=${page}`;
   }
 
   _search(key, p) {
     console.log('search in QQ Page' + p);
     return request(this.createUrl(key, p))
-            .buffer(true)
+            .buffer(true);
   }
 
   async search(key) {

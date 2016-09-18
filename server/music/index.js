@@ -2,9 +2,9 @@ const xiami = require('./Xiami2');
 const netease = require('./Netease');
 const qqMusic = require('./QQMusic');
 const client = require('../redis/');
-const songModel = require('./songModel');
+const songModel = require('../unit/songModel');
 const qqToken = require('../redis/QQmusicToken');
-
+const error = require('../unit/apiRestModel').error;
 
 
 
@@ -28,6 +28,7 @@ const qqToken = require('../redis/QQmusicToken');
 const getSongs = async (song, author, album) => {
 
   const key = song || author || album;
+  if (!key) throw error(1001);
   const token = await qqToken();
   const neteaseArr = await netease.search(key);
   const xiamiArr = await xiami.search(key);
@@ -47,7 +48,7 @@ const getSongs = async (song, author, album) => {
   QQArr.forEach(item => {
     if (!_keyObj[item.songname + item.albumname]) {
       item.dataUrl = `http://cc.stream.qqmusic.qq.com/C200${item.songmid}.m4a?vkey=${token}&fromtag=0&guid=780782017`;
-      item.imageUrl = `http://imgcache.qq.com/music/photo/mid_album_300/${item.albummid.slice(-2, -1)}/${item.albummid.slice(-1)}/${item.albummid}.jpg`
+      item.imageUrl = `http://imgcache.qq.com/music/photo/mid_album_300/${item.albummid.slice(-2, -1)}/${item.albummid.slice(-1)}/${item.albummid}.jpg`;
       const data = songModel(item, 'QQ');
       songsArr.push(data);
       _keyObj[item.songname+item.albumname] = true;
@@ -67,9 +68,8 @@ const getSongs = async (song, author, album) => {
   if (author && album) return songsArr.filter(item => item.author && item.album && (item.author.includes(author) || author.includes(item.author)) && (item.album.includes(album) || album.includes(item.album)));
   if (author) return songsArr.filter(item => item.author && (item.author.includes(author) || author.includes(item.author)));
   if (album) return songsArr.filter(item => item.album && (item.album.includes(album) || album.includes(item.album)));
-  return songsArr
-
-}
+  return songsArr;
+};
 
 module.exports = async (song = false, author = false, album = false) => {
   const songs = JSON.parse(await client.getRedis(`${encodeURI(song)}:${encodeURI(author)}:${encodeURI(album)}`));
@@ -81,5 +81,5 @@ module.exports = async (song = false, author = false, album = false) => {
     client.saveRedis(`${encodeURI(song)}:${encodeURI(author)}:${encodeURI(album)}`, JSON.stringify(songs), 3600 * 24);
     console.log(`search complete ${songs.length} in all!`);
     return songs;
-  })
+  });
 };

@@ -16,9 +16,9 @@ class Netease {
   createGetUrl(key, limit) {
     let temp = '';
     Object.keys(this.query).forEach(key => {
-      temp += `${key}=${this.query[key]}&`
+      temp += `${key}=${this.query[key]}&`;
     });
-    return `${this.url.GET}?${temp}${this.keyName}=${encodeURI(key)}&limit=${limit}`
+    return `${this.url.GET}?${temp}${this.keyName}=${encodeURI(key)}&limit=${limit}`;
   }
 
 
@@ -36,22 +36,22 @@ class Netease {
             .send(body)
             .set('Content-type', 'application/x-www-form-urlencoded')
             .set('Cookie', this.header.Cookie)
-            .set('Referer', this.header.Referer)
+            .set('Referer', this.header.Referer);
   }
 
   async search(key, method = 'POST') {
-      let dataArr = [];
-      let offset = this.offset;
-      let data = JSON.parse((await this._search(key, this.limit, offset, method)).res.text).result.songs;
-      if (!data) return dataArr;
+    let dataArr = [];
+    let offset = this.offset;
+    let data = JSON.parse((await this._search(key, this.limit, offset, method)).res.text).result.songs;
+    if (!data) return dataArr;
+    dataArr = dataArr.concat(data);
+    while (data.length === this.limit) {
+      offset += this.limit;
+      data = JSON.parse((await this._search(key, this.limit, offset, method)).res.text).result.songs;
+      if (!data) break;
       dataArr = dataArr.concat(data);
-      while (data.length === this.limit) {
-        offset += this.limit;
-        data = JSON.parse((await this._search(key, this.limit, offset, method)).res.text).result.songs;
-        if (!data) break;
-        dataArr = dataArr.concat(data);
-      }
-      return dataArr.filter(item => item.status !== -1 && ((item.bMusic && item.bMusic.name) || (item.hMusic && item.hMusic.name) ||(item.lMusic && item.lMusic.name) ||(item.mMusic && item.mMusic.name)));
+    }
+    return dataArr.filter(item => item.status !== -1 && ((item.bMusic && item.bMusic.name) || (item.hMusic && item.hMusic.name) ||(item.lMusic && item.lMusic.name) ||(item.mMusic && item.mMusic.name)));
   }
 }
 

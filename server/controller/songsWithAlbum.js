@@ -1,4 +1,4 @@
-var searchSongs = require('../libary/');
+var searchSongs = require('../music/');
 
 
 const search = async (ctx, next) => {
@@ -12,6 +12,6 @@ const search = async (ctx, next) => {
   await ctx.render('index', {
     music: music
   });
-}
+};
 
 module.exports = search;
