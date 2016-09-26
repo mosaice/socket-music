@@ -22,6 +22,8 @@ module.exports = {
       'styles': path.resolve(__dirname, '../src/styles'),
       'pages': path.resolve(__dirname, '../src/pages'),
       'api': path.resolve(__dirname, '../src/api'),
+      'store': path.resolve(__dirname, '../src/store'),
+      'libary': path.resolve(__dirname, '../src/libary'),
     }
   },
   resolveLoader: {

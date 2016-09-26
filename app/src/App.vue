@@ -17,11 +17,16 @@
 
 <script>
 import LeftMenu from 'components/LeftMenu';
-
+import state from 'store';
 
 export default {
   components: {
     LeftMenu,
+  },
+  data() {
+    return {
+      state,
+    };
   },
 };
 </script>
