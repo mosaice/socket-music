@@ -1,15 +1,16 @@
 const Koa = require('koa');
 const app = new Koa();
 const views = require('koa-views');
-const co = require('co');
 const convert = require('koa-convert');
 const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
+const cors = require('kcors');
 
 const router = require('./routes/');
 // middlewares
+app.use(cors());
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
