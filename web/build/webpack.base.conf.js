@@ -5,6 +5,7 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
+    'whatwg-fetch': 'whatwg-fetch',
     app: './src/main.js'
   },
   output: {
@@ -23,10 +24,10 @@ module.exports = {
       'styles': path.resolve(__dirname, '../src/styles'),
       'pages': path.resolve(__dirname, '../src/pages'),
       'api': path.resolve(__dirname, '../src/api'),
-      'store': path.resolve(__dirname, '../src/store'),
+      'store': path.resolve(__dirname, '../src/vuex/store'),
       'libary': path.resolve(__dirname, '../src/libary'),
-      'actions': path.resolve(__dirname, '../src/actions'),
-      'mutations': path.resolve(__dirname, '../src/mutations'),
+      'actions': path.resolve(__dirname, '../src/vuex/actions'),
+      'mutations': path.resolve(__dirname, '../src/vuex/mutations'),
     }
   },
   resolveLoader: {

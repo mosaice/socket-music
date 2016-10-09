@@ -2,11 +2,12 @@
   <div id="container">
     <left-menu></left-menu>
     <div id="top-menu">
-      <!-- <ant-menu :selected-keys="[]" mode="horizontal">
-        <ant-menu-item><a v-link="'/search'">搜索</a></ant-menu-item>
-        <ant-menu-item><a v-link="'/room'">聊天室</a></ant-menu-item>
-        <ant-menu-item><a v-link="'/calendar'">日历</a></ant-menu-item>
-      </ant-menu> -->
+      <el-menu class="el-menu-demo" mode="horizontal" router :default-active="$route.path">
+        <el-menu-item index="/">首页</el-menu-item>
+        <el-menu-item index="/search">搜索</el-menu-item>
+        <el-menu-item index="/">房间</el-menu-item>
+        <el-menu-item index="/search">其他</el-menu-item>
+      </el-menu>
     </div>
     <div id="main">
       <router-view></router-view>
@@ -17,16 +18,10 @@
 
 <script>
 import LeftMenu from 'components/LeftMenu';
-import state from 'store';
 
 export default {
   components: {
     LeftMenu,
-  },
-  data() {
-    return {
-      state,
-    };
   },
 };
 </script>
@@ -37,13 +32,19 @@ export default {
 
 
 #container {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
   padding-left: 300px;
+}
+
+.el-menu-demo {
+  display: inline-block;
+}
+
+#top-menu {
+  text-align: center;
+  background: #eff2f7;
 }
 
 </style>

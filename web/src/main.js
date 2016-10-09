@@ -1,10 +1,13 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+import Element from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
+import store from 'store';
 import router from './router';
 import App from './App';
-import store from './store';
 
 Vue.use(VueResource);
+Vue.use(Element);
 
 
 new Vue({
