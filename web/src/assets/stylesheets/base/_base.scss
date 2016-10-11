@@ -1,0 +1,93 @@
+/*------------------------------------*
+    # _base.scss
+    Sets styles on base elements: html, body,
+    a, ul, li, etc.
+ *------------------------------------*/
+
+.display-none {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+ * Width
+ */
+html,body {
+  height: 100%;
+  min-width: $app-min-width; /* minimum width for design of showing readings */
+}
+
+/*
+ * Font-Size
+ * required for React Toolbox sizing
+ */
+html {
+  font-size: 62.5%;
+  line-height: 62.5%;
+}
+
+body {
+  font-size: 1.6rem; /* font-size 16px as normal */
+}
+
+#app {
+  height: 100%;
+}
+
+/*
+ * Text and Headers
+ */
+body,
+h1,h2,h3,h4,h5,h6,
+p,
+a {
+  font-family: Roboto, Microsoft YaHei, sans-serif;
+  font-weight: 100;
+  margin:0;
+  line-height: normal;
+}
+
+h1      { font-size: 36px; }
+h2      { font-size: 30px; }
+h3      { font-size: 24px; }
+h4      { font-size: 18px; }
+h5      { font-size: 14px; }
+p       { font-size: 13px; }
+p.small { font-size: 10px; }
+
+small {
+  font-size: 10px;
+}
+
+a {
+  color: $color-black-text;
+  text-decoration: none;
+  cursor: pointer;
+  &:focus, &:hover {
+    text-decoration: none;
+    color: $color-black-text;
+  }
+}
+
+input {
+  box-shadow: none;
+  outline: none;
+}
+
+.clearfix :after {
+  visibility:hidden;
+  display:block;
+  font-size:0;
+  content:" ";
+  clear:both;
+  height:0;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

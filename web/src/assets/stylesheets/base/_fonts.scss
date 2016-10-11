@@ -1,0 +1,117 @@
+/***** Font Definition for Roboto. *****/
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular-webfont.eot');
+  src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Regular-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+       url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Bold-webfont.eot');
+  src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Bold-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+       url('../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Thin-webfont.eot');
+  src: url('../fonts/Roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Thin-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Thin-webfont.ttf') format('truetype'),
+       url('../fonts/Roboto-Thin-webfont.svg#RobotoThin') format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light-webfont.eot');
+  src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Light-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Light-webfont.ttf') format('truetype'),
+       url('../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Medium-webfont.eot');
+  src: url('../fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Medium-webfont.woff') format('woff'),
+       url('../fonts/Roboto-Medium-webfont.ttf') format('truetype'),
+       url('../fonts/Roboto-Medium-webfont.svg#RobotoMedium') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/***** Font Definition for ultima. *****/
+@font-face {
+  font-family: 'ultima';
+  src: url('../fonts/ultima-webfont.eot');
+  src: url('../fonts/ultima-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/ultima-webfont.woff2') format('woff2'),
+       url('../fonts/ultima-webfont.woff') format('woff'),
+       url('../fonts/ultima-webfont.ttf') format('truetype'),
+       url('../fonts/ultima-webfont.svg#ultimaregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ultima';
+  src: url('../fonts/ultima-bold-webfont.eot');
+  src: url('../fonts/ultima-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/ultima-bold-webfont.woff2') format('woff2'),
+       url('../fonts/ultima-bold-webfont.woff') format('woff'),
+       url('../fonts/ultima-bold-webfont.ttf') format('truetype'),
+       url('../fonts/ultima-bold-webfont.svg#ultimabold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ultima';
+  src: url('../fonts/ultima-black-webfont.eot');
+  src: url('../fonts/ultima-black-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/ultima-black-webfont.woff2') format('woff2'),
+       url('../fonts/ultima-black-webfont.woff') format('woff'),
+       url('../fonts/ultima-black-webfont.ttf') format('truetype'),
+       url('../fonts/ultima-black-webfont.svg#ultimablack') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ultima';
+  src: url('../fonts/ultima-light-webfont.eot');
+  src: url('../fonts/ultima-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/ultima-light-webfont.woff2') format('woff2'),
+       url('../fonts/ultima-light-webfont.woff') format('woff'),
+       url('../fonts/ultima-light-webfont.ttf') format('truetype'),
+       url('../fonts/ultima-light-webfont.svg#ultimalight') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/***** Font Definition for materialicons. *****/
+@font-face {
+  font-family: 'Material Icons';
+  src: url('../fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+      //  url('../fonts/MaterialIcons-Regular.woff2') format('woff2'), 引入异常
+       url('../fonts/MaterialIcons-Regular.woff') format('woff'),
+       url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

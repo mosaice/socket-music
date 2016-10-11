@@ -21,7 +21,6 @@ module.exports = {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
-      'styles': path.resolve(__dirname, '../src/styles'),
       'pages': path.resolve(__dirname, '../src/pages'),
       'api': path.resolve(__dirname, '../src/api'),
       'store': path.resolve(__dirname, '../src/vuex/store'),

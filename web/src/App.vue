@@ -27,9 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./styles/index";
-
-
+@import "./assets/stylesheets/base/_vars_zindex.scss";
 
 #container {
   height: 100%;
@@ -43,8 +41,12 @@ export default {
 }
 
 #top-menu {
-  text-align: center;
   background: #eff2f7;
+  position: fixed;
+  top: 0;
+  left:300px;
+  width: 100%;
+  z-index: $zIndex-6-menu;
 }
 
 </style>

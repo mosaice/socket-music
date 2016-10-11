@@ -1,0 +1,37 @@
+/*
+ * Z-Index Variables
+ *
+ * Usage:
+ * Every time we use a zIndex, name exactly where the application is in
+ * Z-Index Applications.
+ * Then choose a zIndex from the Z-Index Scale.
+ * This way, we keep Z-Index very clean and easy to find.
+ */
+
+
+// Z-Index Scale (private vars)
+// --------------------------------------------------
+// we are using 10 instead of 100 because of React-Toolbox's DatePicker,
+// which for some reason uses 300 and cannot be changed.
+$zIndex-1:   10;
+$zIndex-2:   20;
+$zIndex-3:   30;
+$zIndex-4:   40;
+$zIndex-5:   50;
+$zIndex-6:   60;
+$zIndex-7:   70;
+$zIndex-8:   80;
+$zIndex-9:   90;
+$zIndex-10: 100;
+
+// Modals in Bootstrap are set in the 1000-1100 range.
+// Anything that needs to appear above modals should be set above.
+
+$zIndex-11: 110;
+$zIndex-12: 120;
+
+// Z-Index Applications
+// --------------------------------------------------
+
+
+$zIndex-6-menu:              $zIndex-6;

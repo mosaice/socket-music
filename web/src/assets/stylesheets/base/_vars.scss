@@ -1,0 +1,111 @@
+// Global QLEAR Variables
+// --------------------------------------------------
+
+$site-max-width: 1024px;
+
+$app-min-width: 325px;
+
+$app-head-height: 110px;
+$app-head__top-height: 40px;
+$app-head__bottom-height: 70px;
+
+$app-section-left-width: 30vw;
+$app-section-left-min-width: 360px;
+$app-section-left-max-width: 450px;
+
+$app-footer-height: 60px;
+
+$border-radius: 0;
+
+// Colors
+// --------------------------------------------------
+
+/* Black Text on Light Backgrounds */
+$color-black:             rgba(0,0,0,1);
+$color-black-text:        rgba(0,0,0,.87); /* Text */
+$color-black-secondary:   rgba(0,0,0,.54); /* Secondary Text / Icons */
+$color-black-disabled:    rgba(0,0,0,.26); /* Disabled / Hint Text */
+$color-black-dividers:    rgba(0,0,0,.12); /* Dividers */
+
+/* White Text on Dark Backgrounds */
+$color-white:             rgba(255,255,255,1);
+$color-white-text:        rgba(255,255,255,1); /* Text */
+$color-white-secondary:   rgba(255,255,255,.70); /* Secondary Text / Icons */
+$color-white-disabled:    rgba(255,255,255,.30); /* Disabled / Hint Text */
+$color-white-dividers:    rgba(255,255,255,.12); /* Dividers */
+
+/* */
+$color-gray-text:         gray;
+/* Accent Colors */
+$color-accent:            #2979FF; /* Blue A400 */
+$color-accent-light:      #448AFF; /* Blue A200 */
+$color-accent-dark:       #2962FF; /* blue A600 */
+
+/* Dark Grey Colors */
+$color-grey:              #424242; /* GreyDark 800 */
+$color-grey-light:        #BDBDBD; /* GreyDark 400 */
+$color-grey-dark:         #212121; /* GreyDark 900 */
+
+/* White Background 90% Opacity */
+$white-background-90:     rgba(255,255,255,.90);
+$white-background-30:     rgba(255,255,255,.30);
+$transparent-background:  rgba(255,255,255,.84);
+
+$default-background:      #f6f6f6; /* used in layouts/application.html.erb */
+$default-blue:            #006C92;
+$default-blue-transparent:rgba(0,108,146,.95);
+$default-blue-light:      #007EA2;
+$default-blue-dark:       #006387;
+
+/* Red for Delete and Critical buttons */
+$color-red: #D9534F;
+$color-red-dark: #C9302C;
+$color-red-border: #D43F3A;
+$color-red-border-dark: #AC2925;
+
+/* used in _readings.scss */
+$color-readings-line: rgba(75, 129, 148, 0.5);
+$color-readings-text: #A2C9D7;
+$color-readings-text-dark: #64A6BD;
+
+/* Colors for the Different levels of status */
+$color-status-good: #7BD865;
+$color-status-moderate: #E2E830;
+$color-status-sensitive: #BCA600;
+$color-status-unhealthy: #C43D2B;
+$color-status-very-unhealthy: #8E365D;
+$color-status-hazardous: #673132;
+$color-status-default: #999;
+
+/* Colors for location/monitor status */
+$color-status-red: #da7676;
+
+/*
+ * OLD VARS
+ */
+$danger-red:#c7254e;
+
+$normal-text-color-dark:  #555;
+$normal-text-color-dark-h:#999;
+$normal-text-color-light: #fff;
+
+$white-background:        #fff;
+
+
+// Font-sizes Generic
+// --------------------------------------------------
+/*
+  Typical rules:
+  body = 1em
+  h1 = 3em
+  h2 = 2.25em
+  h3 = 1.75em
+  h4 = 1.125em
+*/
+$body-small: 10px;
+$body-size: 13px;
+$h1-size: 36px;
+$h2-size: 30px;
+$h3-size: 24px;
+$h4-size: 18px;
+$h5-size: 14px;

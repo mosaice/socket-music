@@ -14,21 +14,28 @@
       <el-checkbox class="checkbox" label="歌手"></el-checkbox>
       <el-checkbox class="checkbox" label="专辑"></el-checkbox>
     </el-checkbox-group>
-    <div v-if="search.data.length">
+    <div v-if="search.data.length" class="search-result">
       <el-table
         :data="search.data"
         stripe
         selection-mode="single"
-        @selectionchange="handleSelectionChange"
-        style="width: 100%; margin: 20px;"
+        :selectionchange="handleSelectionChange"
+        style="width: 100%; margin: 20px auto;max-width: 1000px"
         allow-no-selection>
         <el-table-column
-          type="index"
-          width="50">
+          :formatter="formatIndex"
+          property="title"
+          label="#"
+          width="80">
         </el-table-column>
         <el-table-column
           property="title"
           label="歌名"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          property="author"
+          label="歌手"
           align="center">
         </el-table-column>
         <el-table-column
@@ -39,10 +46,11 @@
         <el-table-column
           property="source"
           label="来源"
+          :formatter="formatSource"
           align="center">
         </el-table-column>
       </el-table>
-      <div class="block">
+      <div class="pagination">
         <el-pagination
           @sizechange="sizeChange"
           @currentchange="currentChange"
@@ -59,7 +67,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-
+import { switchName } from 'libary/switchs';
 
 export default {
   data() {
@@ -109,16 +117,27 @@ export default {
         default:
           break;
       }
-      this.startSearch(query);
+      return this.startSearch(query);
     },
     handleSelectionChange(val) {
       console.log(val);
     },
     sizeChange(val) {
-      console.log(val);
+      this.search.query.size = val;
+      this.search.query.page = 1;
+      this.startSearch(this.search.query);
     },
     currentChange(val) {
-      console.log(val);
+      this.search.query.page = val;
+      this.startSearch(this.search.query);
+    },
+    formatIndex(row) {
+      const { data, meta } = this.search;
+      const { page, size } = meta;
+      return (page - 1) * size + data.indexOf(row) + 1;
+    },
+    formatSource(row) {
+      return switchName(row.source);
     },
   },
 };
@@ -140,5 +159,8 @@ h1 {
 .search-input {
   max-width: 300px;
   margin: 20px auto;
+}
+.pagination {
+  margin-bottom: 20px;
 }
 </style>
