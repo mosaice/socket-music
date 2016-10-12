@@ -49,6 +49,15 @@
           :formatter="formatSource"
           align="center">
         </el-table-column>
+        <el-table-column
+          inline-template
+          label="操作"
+          align="center">
+          <span>
+            <el-button type="success" icon="plus" @click.native="addToList(row)">加入歌单</el-button>
+            <el-button type="info" icon="caret-right">单独试听</el-button>
+          </span>
+        </el-table-column>
       </el-table>
       <div class="pagination">
         <el-pagination
@@ -78,7 +87,7 @@ export default {
   },
   computed: mapState(['globalFetch', 'search']),
   methods: {
-    ...mapActions(['startSearch']),
+    ...mapActions(['startSearch', 'addToList']),
     handleSearch() {
       if (!this.checkList.length) {
         return this.$notify({

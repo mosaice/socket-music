@@ -1,4 +1,3 @@
-import * as ActionTypes from 'actions/actionTypes';
 
 export const fetchStart = state => {
   state.globalFetch = {

@@ -1,27 +1,31 @@
 <template>
-  <div class='container'>
-    123
+  <div class="container">
+    <i class="material-icons md-36" @click="listGoPrev">skip_previous</i>
+    <i class="material-icons md-36" @click="pauseAudio">{{audio.playing ? 'pause' : 'play_arrow'}}</i>
+    <i class="material-icons md-36" @click="listGoNext">skip_next</i>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
-  data() {
-    return {
-      msg: 'Hello World!',
-    };
-  },
+  computed: mapState(['audio']),
+  methods: mapActions(['pauseAudio', 'listGoNext', 'listGoPrev']),
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .container {
-    width: 300px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #000;
+    display: inline-block;
+    height: 65px;
+    line-height: 65px;
+    float: right;
+    margin-right: 20px;
+  }
+  .material-icons {
+    margin: 0 5px;
+    cursor: pointer;
   }
 </style>

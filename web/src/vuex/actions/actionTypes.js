@@ -6,3 +6,13 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
 
 // ui types
+
+export const SAVE_COMPONENT = 'SAVE_COMPONENT';
+export const SAVE_AUDIO_DOM = 'SAVE_AUDIO_DOM';
+export const START_PLAY_AUDIO = 'START_PLAY_AUDIO';
+export const CASUAL_PALY = 'CASUAL_PALY';
+export const PAUSE_AUDIO = 'PAUSE_AUDIO';
+export const LIST_GO_NEXT = 'LIST_GO_NEXT';
+export const LIST_GO_PREV = 'LIST_GO_PREV';
+export const ADD_TO_LIST = 'ADD_TO_LIST';
+export const REMOVE_FROM_LIST = 'REMOVE_FROM_LIST';

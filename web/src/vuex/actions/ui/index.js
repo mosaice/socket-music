@@ -1,4 +1,6 @@
-import * as fetch from './globalFetch';
+import * as audio from './audio';
+import * as list from './playList';
+import saveComponent from './components';
 
 
-export default { ...fetch };
+export default { ...audio, ...list, saveComponent };

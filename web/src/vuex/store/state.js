@@ -10,6 +10,21 @@ const state = {
     query: {},
     meta: {},
   },
+  audio: {
+    dom: {},
+    timeLength: null,
+    currentTime: null,
+    playing: false,
+  },
+  playList: {
+    list: [],
+    current: 0,
+    casual: {},
+    isCasual: false,
+  },
+  components: {
+    notify: {},
+  },
 };
 
 

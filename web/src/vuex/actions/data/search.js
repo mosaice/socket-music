@@ -1,13 +1,13 @@
-import * as ActionTypes from 'actions/actionTypes';
+import * as types from 'actions/actionTypes';
 import { SEARCH } from 'actions/urls';
 import { get } from 'api';
 
 export default ({ commit }, query) => {
-  commit(ActionTypes.FETCH_START);
+  commit(types.FETCH_START);
   get(SEARCH, query).then(json => {
-    if (!json) return commit(ActionTypes.FETCH_FAIL, json);
-    commit(ActionTypes.SEARCH_SUCCESS, { json, query });
-    commit(ActionTypes.FETCH_SUCCESS);
+    if (!json) return commit(types.FETCH_FAIL, json);
+    commit(types.SEARCH_SUCCESS, { json, query });
+    commit(types.FETCH_SUCCESS);
     return null;
   });
 };
