@@ -16,3 +16,4 @@ export const LIST_GO_NEXT = 'LIST_GO_NEXT';
 export const LIST_GO_PREV = 'LIST_GO_PREV';
 export const ADD_TO_LIST = 'ADD_TO_LIST';
 export const REMOVE_FROM_LIST = 'REMOVE_FROM_LIST';
+export const SAVE_CURRENT_TIME = 'SAVE_CURRENT_TIME';

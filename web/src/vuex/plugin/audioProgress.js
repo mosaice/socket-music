@@ -1,22 +1,20 @@
 import * as types from 'actions/actionTypes';
 
 export default store => {
-    // socket.on('data', data => {
-    //   store.commit('receiveData', data)
-    // })
   store.subscribe(mutation => {
     if (mutation.type === types.SAVE_AUDIO_DOM) {
       const dom = mutation.payload;
-      dom.addEventListener('timeupdate', e => {
-        console.log('aaa');
-        console.log(e);
+      dom.addEventListener('timeupdate', () => {
+        store.commit(types.SAVE_CURRENT_TIME, { current: dom.currentTime, duration: dom.duration });
+      }, false);
+
+      dom.addEventListener('ended', () => {
+        store.commit(types.LIST_GO_NEXT);
+      }, false);
+
+      dom.addEventListener('canplay', () => {
+        store.commit(types.START_PLAY_AUDIO);
       }, false);
     }
-
-        		// if (!isNaN(audio.duration)) {
-        		// 	var progressValue = (audio.currentTime / audio.duration).toFixed(3);
-            // var percentage = progressValue * 100 + '%';
-        		//   $('.audio-bar').width(percentage);
-        		// };
   });
 };

@@ -6,10 +6,9 @@ const json = require('koa-json');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 const cors = require('kcors');
-
 const router = require('./routes/');
-// middlewares
 
+// middlewares
 app.use(cors());
 app.use(convert(bodyparser));
 app.use(convert(json()));
@@ -33,7 +32,7 @@ app.use(router.routes(), router.allowedMethods());
 // response
 
 app.on('error', function(err, ctx){
-  console.log(err)
+  console.log(err);
 });
 
 

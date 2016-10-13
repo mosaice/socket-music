@@ -9,6 +9,7 @@
         <el-menu-item index="/search">其他</el-menu-item>
       </el-menu>
       <music-controller></music-controller>
+      <music-bar></music-bar>
     </div>
     <div id="main">
       <router-view></router-view>
@@ -22,12 +23,14 @@
 <script>
 import LeftMenu from 'components/LeftMenu';
 import MusicController from 'components/MusicController';
+import MusicBar from 'components/MusicBar';
 import { mapState, mapActions } from 'vuex';
 
 export default {
   components: {
     LeftMenu,
     MusicController,
+    MusicBar,
   },
   computed: {
     ...mapState(['playList', 'audio']),
@@ -39,7 +42,6 @@ export default {
   },
   methods: mapActions(['saveAudioDom', 'saveComponent']),
   mounted() {
-    this.saveComponent('notify', this.$notify);
     this.saveAudioDom(this.$refs.audio);
   },
 };
@@ -52,7 +54,7 @@ export default {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding-left: 300px;
+  padding-left: 250px;
 }
 
 .el-menu-demo {
@@ -63,8 +65,8 @@ export default {
   background: #eff2f7;
   position: fixed;
   top: 0;
-  left:300px;
-  width: calc(100% - 300px);
+  left:250px;
+  width: calc(100% - 250px);
   z-index: $zIndex-6-menu;
 }
 

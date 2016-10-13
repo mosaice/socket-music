@@ -54,8 +54,11 @@
           label="操作"
           align="center">
           <span>
-            <el-button type="success" icon="plus" @click.native="addToList(row)">加入歌单</el-button>
-            <el-button type="info" icon="caret-right">单独试听</el-button>
+            <el-button type="success" icon="plus" size="mini" @click.native="addToList(row)" plain></el-button>
+            <el-button type="info" icon="caret-right" plain size="mini"></el-button>
+            <a class="el-button el-button-warning el-button-mini is-plain" :href="row.src" :download="row.title">
+              <i class="el-icon-upload"></i>
+            </a>
           </span>
         </el-table-column>
       </el-table>
@@ -89,6 +92,8 @@ export default {
   methods: {
     ...mapActions(['startSearch', 'addToList']),
     handleSearch() {
+      const { isFething } = this.globalFetch;
+      if (isFething) return null;
       if (!this.checkList.length) {
         return this.$notify({
           title: '警告',

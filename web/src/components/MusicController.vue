@@ -16,7 +16,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
+@import "../assets/stylesheets/base/_vars.scss";
+
   .container {
     display: inline-block;
     height: 65px;
@@ -27,5 +29,6 @@ export default {
   .material-icons {
     margin: 0 5px;
     cursor: pointer;
+    color: #475669;
   }
 </style>

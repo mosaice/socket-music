@@ -20,4 +20,5 @@ export default {
   [types.LIST_GO_PREV]: List.listGoPrev,
   [types.ADD_TO_LIST]: List.addToList,
   [types.REMOVE_FROM_LIST]: List.removeFromList,
+  [types.SAVE_CURRENT_TIME]: Audio.saveCurrentTime,
 };

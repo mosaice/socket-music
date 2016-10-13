@@ -12,8 +12,8 @@ const state = {
   },
   audio: {
     dom: {},
-    timeLength: null,
-    currentTime: null,
+    current: 0,
+    duration: 0,
     playing: false,
   },
   playList: {
