@@ -14,6 +14,8 @@ These frameworks i will use.
 
 - [x] Vuex(2.X)
 
+- [x] Element
+
 - [ ] SocketIO
 
 ### Backend
