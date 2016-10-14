@@ -11,3 +11,11 @@ export const playAudio = ({ commit }) => {
 export const pauseAudio = ({ commit }) => {
   commit(types.PAUSE_AUDIO);
 };
+
+export const resetAudio = ({ commit }) => {
+  commit(types.RESET_AUDIO);
+};
+
+export const changeCurrentTime = ({ commit }, time) => {
+  commit(types.CHANGE_CURRENT_TIME, time);
+};

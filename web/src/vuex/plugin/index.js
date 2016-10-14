@@ -1,5 +1,6 @@
 import createLogger from 'vuex/dist/logger';
 import audioProgress from './audioProgress';
-import autoPlay from './autoPlay';
+import autoStop from './autoStop';
 
-export default [createLogger(), audioProgress, autoPlay];
+
+export default [createLogger(), audioProgress, autoStop];

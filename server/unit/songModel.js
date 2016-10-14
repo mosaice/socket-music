@@ -48,7 +48,7 @@ module.exports = function (data, source) {
     return {
       title: data.song_name,
       author: data.artist_name,
-      cover: data.album_logo,
+      cover: `${data.album_logo.slice(0, -5)}4.jpg`,
       src: data.listen_file,
       album: data.album_name,
       source: 'Xiami2',

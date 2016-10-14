@@ -9,6 +9,10 @@ export const listGoPrev = async ({ commit }) => {
   commit(types.LIST_GO_PREV);
 };
 
+export const listGoSome = async ({ commit }, index) => {
+  commit(types.LIST_GO_SOME, index);
+};
+
 export const addToList = ({ commit }, song) => {
   commit(types.ADD_TO_LIST, song);
 };

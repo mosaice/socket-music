@@ -43,3 +43,17 @@ export const saveCurrentTime = (state, { current, duration }) => {
   audio.current = current;
   audio.duration = duration;
 };
+
+export const resetAudio = state => {
+  const { audio } = state;
+  audio.dom.src = '';
+  audio.current = 0;
+  audio.duration = 0;
+  audio.playing = false;
+};
+
+export const changeCurrentTime = (state, time) => {
+  const { audio } = state;
+  audio.current = time;
+  audio.dom.currentTime = time;
+};

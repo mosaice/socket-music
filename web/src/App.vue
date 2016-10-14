@@ -9,7 +9,7 @@
         <el-menu-item index="/search">其他</el-menu-item>
       </el-menu>
       <music-controller></music-controller>
-      <music-bar></music-bar>
+      <music-bar :height="4"></music-bar>
     </div>
     <div id="main">
       <router-view></router-view>

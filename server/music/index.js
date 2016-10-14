@@ -8,10 +8,10 @@ const error = require('../unit/apiRestModel').error;
 
 
 
-// xiami.search('周杰伦').then(data => {
-//   console.log(data.length);
+// xiami.search('梁博').then(data => {
+//   console.log(data[0]);
 // });
-// qqMusic.search('五月天').then(data => console.log(data.length));
+// qqMusic.search('五月天').then(data => console.log(data[0]));
 // netease.search('五月天').then(data => console.log(data.length));
 // baidu.search('五月天').then(data => {
 //   console.log(data.lenght);
