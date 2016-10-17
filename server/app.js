@@ -5,11 +5,11 @@ const convert = require('koa-convert');
 const json = require('koa-json');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
-const cors = require('kcors');
+// const cors = require('kcors');
 const router = require('./routes/');
 
 // middlewares
-app.use(cors());
+// app.use(cors());
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
