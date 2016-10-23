@@ -21,6 +21,7 @@ const state = {
     current: 0,
     casual: {},
     isCasual: false,
+    playMode: 'list', //loop //shuffle
   },
   components: {
     notify: {},

@@ -24,4 +24,7 @@ export default {
   [types.REMOVE_FROM_LIST]: List.removeFromList,
   [types.SAVE_CURRENT_TIME]: Audio.saveCurrentTime,
   [types.CHANGE_CURRENT_TIME]: Audio.changeCurrentTime,
+  [types.CASUAL_PLAY]: List.casualPlay,
+  [types.CHANGE_PLAY_MODE]: List.changePlayMode,
+  [types.RANDOM_PLAY]: List.randomPlay,
 };

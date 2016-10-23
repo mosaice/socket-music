@@ -28,10 +28,13 @@ class Xiami {
   async search(key) {
     let p = this.startPage;
     let dataArr = [];
+    let newData = [];
     let data = JSON.parse((await this._search(key, p)).res.text).data.songs;
     while (data.length) {
       dataArr = dataArr.concat(data);
-      data = JSON.parse((await this._search(key, ++p)).res.text).data.songs;
+      newData = JSON.parse((await this._search(key, ++p)).res.text).data.songs;
+      if (JSON.stringify(newData) === JSON.stringify(data)) break;
+      data = newData;
     }
     return dataArr;
   }

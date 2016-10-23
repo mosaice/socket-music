@@ -55,7 +55,7 @@
           align="center">
           <span>
             <el-button type="success" icon="plus" size="mini" @click.native="addToList(row)" plain></el-button>
-            <el-button type="info" icon="caret-right" plain size="mini"></el-button>
+            <el-button type="info" icon="caret-right" plain size="mini" @click.native="casualPlay(row)"></el-button>
             <a class="el-button el-button-warning el-button-mini is-plain" :href="row.src" :download="row.title">
               <i class="el-icon-upload"></i>
             </a>
@@ -90,7 +90,7 @@ export default {
   },
   computed: mapState(['globalFetch', 'search']),
   methods: {
-    ...mapActions(['startSearch', 'addToList']),
+    ...mapActions(['startSearch', 'addToList', 'casualPlay']),
     handleSearch() {
       const { isFething } = this.globalFetch;
       if (isFething) return null;

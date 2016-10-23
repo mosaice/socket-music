@@ -9,7 +9,7 @@
       <div>
         <span>{{current | toTime}} / {{duration | toTime}}</span>
         <div class="icon-group">
-          <i class="material-icons md-18" @click="remove(index)">delete_sweep</i>
+          <i v-if="showRemove" class="material-icons md-18" @click="remove(index)">delete_sweep</i>
           <a class="material-icons md-18" :download="data.title" :href="data.src">file_download</a>
         </div>
       </div>
@@ -36,6 +36,9 @@ export default {
     },
     index: {
       type: Number,
+    },
+    showRemove: {
+      type: Boolean,
     },
   },
   mounted() {

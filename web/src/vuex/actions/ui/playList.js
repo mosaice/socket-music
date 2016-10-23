@@ -21,6 +21,14 @@ export const removeFromList = ({ commit }, index) => {
   commit(types.REMOVE_FROM_LIST, index);
 };
 
-export const casualPlay = async ({ commit, dispatch }, song) => {
+export const casualPlay = ({ commit }, song) => {
   commit(types.CASUAL_PALY, song);
+};
+
+export const changePlayMode = ({ commit }) => {
+  commit(types.CHANGE_PLAY_MODE);
+};
+
+export const randomPlay = ({ commit }) => {
+  commit(types.RANDOM_PLAY);
 };

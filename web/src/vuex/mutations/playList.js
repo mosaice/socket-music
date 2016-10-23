@@ -1,4 +1,5 @@
 import { Notification as notify } from 'element-ui';
+import { random, indexOf } from 'lodash';
 
 export const listGoNext = (state) => {
   const { playList } = state;
@@ -52,8 +53,26 @@ export const removeFromList = (state, index) => {
   if (playList.current > index) playList.current--;
 };
 
-export const casual = (state, song) => {
+export const casualPlay = (state, song) => {
   const { playList } = state;
   playList.casual = song;
   playList.isCasual = true;
+};
+
+
+export const randomPlay = (state) => {
+  const { playList } = state;
+  if (!playList.list.length) return null;
+  playList.isCasual = false;
+  const randomIndex = random(playList.list.length - 1);
+  console.log(randomIndex);
+  playList.current = randomIndex;
+};
+
+export const changePlayMode = (state) => {
+  const mode = ['list', 'shuffle', 'loop'];
+  const { playList } = state;
+  let modeIndex = indexOf(mode, playList.playMode) + 1;
+  if (modeIndex === mode.length) modeIndex = 0;
+  playList.playMode = mode[modeIndex];
 };

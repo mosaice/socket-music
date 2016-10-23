@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-    <i class="material-icons md-36" @click="listGoPrev">skip_previous</i>
+    <i class="material-icons md-36" @click="prev">skip_previous</i>
     <i class="material-icons md-36" @click="pauseAudio">{{audio.playing ? 'pause' : 'play_arrow'}}</i>
-    <i class="material-icons md-36" @click="listGoNext">skip_next</i>
+    <i class="material-icons md-36" @click="changePlayMode">{{playList.playMode}}</i>
+    <i class="material-icons md-36" @click="next">skip_next</i>
   </div>
 </template>
 
@@ -10,8 +11,30 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  computed: mapState(['audio']),
-  methods: mapActions(['pauseAudio', 'listGoNext', 'listGoPrev']),
+  computed: mapState(['audio', 'playList']),
+  methods: {
+    ...mapActions(['pauseAudio', 'listGoNext', 'listGoPrev', 'changePlayMode', 'randomPlay']),
+    next() {
+      const { playMode } = this.playList;
+      switch (playMode) {
+        case 'shuffle':
+          this.randomPlay();
+          break;
+        default:
+          this.listGoNext();
+      }
+    },
+    prev() {
+      const { playMode } = this.playList;
+      switch (playMode) {
+        case 'shuffle':
+          this.randomPlay();
+          break;
+        default:
+          this.listGoPrev();
+      }
+    },
+  },
 };
 </script>
 

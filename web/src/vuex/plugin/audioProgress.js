@@ -9,7 +9,21 @@ export default store => {
       }, false);
 
       dom.addEventListener('ended', () => {
-        store.commit(types.LIST_GO_NEXT);
+        const { playList, audio } = store.state;
+        switch (playList.playMode) {
+          case 'list':
+            store.commit(types.LIST_GO_NEXT);
+            break;
+          case 'loop':
+            audio.current = 0;
+            store.commit(types.START_PLAY_AUDIO);
+            break;
+          case 'shuffle':
+            store.commit(types.RANDOM_PLAY);
+            break;
+          default:
+            store.commit(types.LIST_GO_NEXT);
+        }
       }, false);
 
       dom.addEventListener('canplay', () => {

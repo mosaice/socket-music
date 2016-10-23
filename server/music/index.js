@@ -62,24 +62,39 @@ const getSongs = async (song, author, album) => {
       _keyObj[item.name + item.album.alias.join()] = true;
     }
   });
-  if (song && author && album) return songsArr.filter(item => item.author && item.album && (item.author.includes(author) || author.includes(item.author)) && (item.album.includes(album) || album.includes(item.album)));
-  if (song && author) return songsArr.filter(item => item.author && (item.author.includes(author) || author.includes(item.author)));
-  if (song && album) return songsArr.filter(item => item.album && (item.album.includes(album) || album.includes(item.album)));
-  if (author && album) return songsArr.filter(item => item.author && item.album && (item.author.includes(author) || author.includes(item.author)) && (item.album.includes(album) || album.includes(item.album)));
-  if (author) return songsArr.filter(item => item.author && (item.author.includes(author) || author.includes(item.author)));
-  if (album) return songsArr.filter(item => item.album && (item.album.includes(album) || album.includes(item.album)));
+  client.saveRedis(`${encodeURI(key)}`, JSON.stringify(songsArr), 3600 * 24);
   return songsArr;
 };
 
+const filterSongs = (songsArr, song, author, album) => {
+  let _arr = songsArr;
+  if (song && author && album) _arr = songsArr.filter(item => item.author && item.album && (item.author.includes(author) || author.includes(item.author)) && (item.album.includes(album) || album.includes(item.album)));
+  if (song && author) _arr = songsArr.filter(item => item.author && (item.author.includes(author) || author.includes(item.author)));
+  if (song && album) _arr = songsArr.filter(item => item.album && (item.album.includes(album) || album.includes(item.album)));
+  if (author && album) _arr = songsArr.filter(item => item.author && item.album && (item.author.includes(author) || author.includes(item.author)) && (item.album.includes(album) || album.includes(item.album)));
+  if (author) _arr = songsArr.filter(item => item.author && (item.author.includes(author) || author.includes(item.author)));
+  if (album) _arr = songsArr.filter(item => item.album && (item.album.includes(album) || album.includes(item.album)));
+  client.saveRedis(`${encodeURI(song)}:${encodeURI(author)}:${encodeURI(album)}`, JSON.stringify(_arr), 3600 * 24);
+  return _arr;
+};
+
 module.exports = async (song = false, author = false, album = false) => {
-  const songs = JSON.parse(await client.getRedis(`${encodeURI(song)}:${encodeURI(author)}:${encodeURI(album)}`));
-  if (songs) {
+  const filters = JSON.parse(await client.getRedis(`${encodeURI(song)}:${encodeURI(author)}:${encodeURI(album)}`));
+  const sources = JSON.parse(await client.getRedis(`${encodeURI(song || author || album)}`));
+  if (filters) {
+    console.log(`search complete ${filters.length} in all!`);
+    return filters;
+  }
+
+  if (sources) {
+    const songs = filterSongs(sources, song, author, album);
     console.log(`search complete ${songs.length} in all!`);
     return songs;
   }
+
   return getSongs(song, author, album).then(songs => {
-    client.saveRedis(`${encodeURI(song)}:${encodeURI(author)}:${encodeURI(album)}`, JSON.stringify(songs), 3600 * 24);
-    console.log(`search complete ${songs.length} in all!`);
-    return songs;
+    const result = filterSongs(songs, song, author, album);
+    console.log(`search complete ${result.length} in all!`);
+    return result;
   });
 };

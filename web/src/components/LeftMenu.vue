@@ -8,6 +8,7 @@
       :duration="audio.duration"
       :index="playList.current"
       :remove="removeFromList"
+      :showRemove="!playList.isCasual"
     >
     </music-card>
     <div class="line" v-if="song">
@@ -17,7 +18,7 @@
       <p @click="listGoSome(id)"
         v-for="(item, id) in playList.list"
         :key="id"
-        :class="{active: id === playList.current, titleItem: true}"
+        :class="{active: !playList.isCasual && (id === playList.current), titleItem: true}"
       >
         {{ item.title }}
         <i class="material-icons md-18 remove-item" @click="remove(id, $event)">indeterminate_check_box</i>

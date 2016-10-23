@@ -1,4 +1,4 @@
-import { Notification } from 'element-ui';
+import { Notification as notify } from 'element-ui';
 
 
 export const saveAudioDom = (state, dom) => {
@@ -8,8 +8,8 @@ export const saveAudioDom = (state, dom) => {
 
 const tryPlay = state => {
   const { playList } = state;
-  if (!playList.list[playList.current]) {
-    Notification({
+  if (!playList.isCasual && !playList.list[playList.current]) {
+    notify({
       title: '播放错误',
       message: '请确认播放列表无误',
       type: 'warning',
