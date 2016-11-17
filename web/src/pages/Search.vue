@@ -56,7 +56,7 @@
           <span>
             <el-button type="success" icon="plus" size="mini" @click.native="addToList(row)" plain></el-button>
             <el-button type="info" icon="caret-right" plain size="mini" @click.native="casualPlay(row)"></el-button>
-            <a class="el-button el-button-warning el-button-mini is-plain" :href="row.src" :download="row.title">
+            <a class="el-button el-button-warning el-button--mini is-plain" :href="row.src" :download="row.title">
               <i class="el-icon-upload"></i>
             </a>
           </span>
@@ -64,8 +64,8 @@
       </el-table>
       <div class="pagination">
         <el-pagination
-          @sizechange="sizeChange"
-          @currentchange="currentChange"
+          @size-change="sizeChange"
+          @current-change="currentChange"
           :current-page="search.meta.page"
           :page-sizes="[10, 20, 50]"
           :page-size="search.meta.size"

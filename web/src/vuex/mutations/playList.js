@@ -1,3 +1,12 @@
+/**
+* @Author: Li Bang <mosaice>
+* @Date:   2016-11-01T00:25:26+08:00
+* @Email:  libang@giga.build
+* @Last modified by:   mosaice
+* @Last modified time: 2016-11-17T14:18:36+08:00
+*/
+
+
 import { Notification as notify } from 'element-ui';
 import { random, indexOf } from 'lodash';
 
@@ -49,6 +58,11 @@ export const addToList = (state, song) => {
 
 export const removeFromList = (state, index) => {
   const { playList } = state;
+  if (playList.list.length === 1) {
+    playList.list = [];
+    playList.current = 0;
+    return null;
+  }
   playList.list.splice(index, 1);
   if (playList.current > index) playList.current--;
 };

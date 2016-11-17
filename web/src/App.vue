@@ -3,10 +3,9 @@
     <left-menu></left-menu>
     <div id="top-menu">
       <el-menu class="el-menu-demo" mode="horizontal" router :default-active="$route.path">
-        <el-menu-item index="/">首页</el-menu-item>
         <el-menu-item index="/search">搜索</el-menu-item>
-        <el-menu-item index="/">房间</el-menu-item>
-        <el-menu-item index="/search">其他</el-menu-item>
+        <el-menu-item index="/room">房间</el-menu-item>
+        <el-menu-item index="/other">其他</el-menu-item>
       </el-menu>
       <music-controller></music-controller>
       <music-bar :height="4"></music-bar>

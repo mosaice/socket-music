@@ -43,13 +43,12 @@ export default {
   },
   mounted() {
     const { cover } = this.$refs;
-    cover.addEventListener('error', () => {
-      cover.src = Logo;
-    }, false);
+    this.changeCover = c => c.src = Logo;
+    cover.addEventListener('error', this.changeCover.bind(this, cover), false);
   },
   beforeDestroy() {
     const { cover } = this.$refs;
-    cover.removeEventListener('error');
+    cover.removeEventListener('error', this.changeCover.bind(this, cover));
   },
 };
 </script>
